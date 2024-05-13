@@ -157,5 +157,34 @@ public class AviaSoulsTest {
         Assertions.assertArrayEquals(expected, actual);
 
     }
+    @Test
+    public void searchTestOneTicket() {
+        AviaSouls avia = new AviaSouls();
+        avia.add(ticket1);
+        avia.add(ticket2);
+        avia.add(ticket3);
+        avia.add(ticket4);
+        avia.add(ticket5);
+
+        Ticket[] expected = {ticket5};
+        Ticket[] actual = avia.search("DME", "IKT");
+        Assertions.assertArrayEquals(expected, actual);
+
+    }
+    @Test
+    public void searchTestNull() {
+        AviaSouls avia = new AviaSouls();
+        avia.add(ticket1);
+        avia.add(ticket2);
+        avia.add(ticket3);
+        avia.add(ticket4);
+        avia.add(ticket5);
+
+        Ticket[] expected = {};
+        Ticket[] actual = avia.search("AER", "IKT");
+        Assertions.assertArrayEquals(expected, actual);
+
+    }
+
 
 }
